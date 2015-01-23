@@ -10,3 +10,10 @@ class window.GameState extends Phaser.State
   create: ->
     console.log("create")
     @game.add.sprite(0,0, "octocat")
+    @gameTimer = @game.time.create()
+    @gameTimer.loop(333, @gameTick, this)
+    @gameTimer.start()
+    @gameTickEvent = new Phaser.Signal()
+
+  gameTick: ->
+    @gameTickEvent.dispatch(this)
