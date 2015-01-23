@@ -1,7 +1,7 @@
 class window.GameState extends Phaser.State
   constructor: ->
-    super
-    console.log "mainState"
+    super()
+    console.log("mainState")
 
   preload: ->
 
