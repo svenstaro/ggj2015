@@ -5,8 +5,8 @@ class window.GameState extends Phaser.State
 
   preload: ->
     console.log("load")
+    @game.load.image("octocat", "img/ball.png")
 
   create: ->
     console.log("create")
-    # @logo = new LogoSprite(@game, @game.world.centerX, @game.world.centerY, 'logo')
-    # @game.world.add(@logo)
+    @game.add.sprite(0,0, "octocat")
