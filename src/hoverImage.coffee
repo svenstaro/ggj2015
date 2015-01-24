@@ -3,6 +3,7 @@ class window.HoverImage extends Phaser.Image
     key = @gameType
     super(game, x, y, key)
     game.input.onDown.add(this.onClick, this)
+    window.HoverImage.current = this
 
   update: ->
     map = game.state.getCurrentState().map
@@ -33,4 +34,8 @@ class window.HoverImage extends Phaser.Image
         game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
     else
         game.input.onDown.remove(this.onClick, this)
+        window.HoverImage.current = null
         this.destroy()
+
+
+window.HoverImage.current = null

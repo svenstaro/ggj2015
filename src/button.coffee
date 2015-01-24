@@ -4,7 +4,7 @@ class window.Button extends Phaser.Button
     super(game, x, y, key, this.onClick, this)
 
   onClick: ->
-    if game.input.mouse.button == Phaser.Mouse.LEFT_BUTTON
+    if window.HoverImage.current != null
       @game.add.existing(new HoverImage(@game,
         @gameType,
         game.input.mousePointer.x,
