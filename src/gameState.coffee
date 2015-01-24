@@ -34,7 +34,3 @@ class window.GameState extends Phaser.State
 
   gameTick: ->
     @gameTickEvent.dispatch(this)
-
-  create: ->
-    console.log("create")
-    @game.add.existing(new BuildingWell(@game))
