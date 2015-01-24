@@ -23,6 +23,8 @@ class window.GameState extends Phaser.State
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     @game.add.existing(new Item("wood", this, @game, 100, 10))
+    @game.add.existing(new Building("hut", this, @game, 300, 17))
+    @game.add.existing(new Building("well", this, @game, 20, 150))
 
     @map = @game.add.tilemap()
     @layer = @map.create('level1', 10, 10, 32, 32)
