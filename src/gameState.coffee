@@ -7,12 +7,16 @@ class window.GameState extends Phaser.State
     console.log("load")
     @game.load.image("octocat", "img/ball.png")
     @game.load.image("black_cat", "img/ball_01.png")
+
     # @game.add.image('wood', 'img/wood.png')
     # @game.add.image('fruits', 'img/fruits.png')
     # @game.add.image('stone', 'img/stone.png')
     # @game.add.image('iron', 'img/iron.png')
     #Buildings
     @game.load.image("well", "img/well.png")
+    #Ground
+    @game.load.image("ground-tiles", "img/groundtile_default.png")
+
 
   create: ->
     console.log("create")
@@ -28,36 +32,34 @@ class window.GameState extends Phaser.State
     @game.add.existing(new Building("well", this, @game, 20, 150))
 
     @map = @game.add.tilemap()
-    @layer = @map.create('level1', 10, 10, 32, 32)
-    tileset = @map.addTilesetImage('octocat')
+    @layer = @map.create('level1', 10, 10, 64, 64)
+    @map.addTilesetImage('ground-tiles')
     @map.putTile(0, 0, 0)
-    #@map.random(0, 0, 10, 10)
+    # @map.random(5, 5, 9, 9)
 
-    #test moving camera
+    # test moving camera
     @game.world.setBounds(-1000, -1000, 2000, 2000)
     window.cursors = @game.input.keyboard.createCursorKeys()
 
   update: ->
     if (cursors.up.isDown)
       if (cursors.up.shiftKey)
-        console.log("lol")
       else
-        game.camera.y -= 4;
+        game.camera.y -= 4
     else if (cursors.down.isDown)
       if (cursors.down.shiftKey)
-       console.log("lol1")
       else
-        game.camera.y += 4;
+        game.camera.y += 4
     if (cursors.left.isDown)
       if (cursors.left.shiftKey)
-        game.world.rotation -= 0.05;
+        game.world.rotation -= 0.05
       else
-        game.camera.x -= 4;
+        game.camera.x -= 4
     else if (cursors.right.isDown)
       if (cursors.right.shiftKey)
-        game.world.rotation += 0.05;
+        game.world.rotation += 0.05
       else
-        game.camera.x += 4;
+        game.camera.x += 4
 
   gameTick: ->
     @gameTickEvent.dispatch(this)
