@@ -21,7 +21,7 @@ class window.GameState extends Phaser.State
 
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
-    @game.add.existing(new EnvObject("fruits", this, @game, 200, 100))
+    @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
 
 
   gameTick: ->
