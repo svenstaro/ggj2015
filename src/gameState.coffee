@@ -22,7 +22,7 @@ class window.GameState extends Phaser.State
     @game.load.image("iron", "img/uref_iron.png")
     @game.load.image("egg", "img/eggs.png")
     @game.load.image("straw", "img/straw.png")
-    @game.load.image("iron_ingot", "img/iron_ingot.png")
+    @game.load.image("iron ingot", "img/iron_ingot.png")
     @game.load.image("wheat", "img/wheat.png")
     @game.load.image("chicken", "img/chicken.png")
     #EnvObjects
@@ -32,7 +32,9 @@ class window.GameState extends Phaser.State
 
   create: ->
     console.log("create")
-    
+
+    @cursors = @game.input.keyboard.createCursorKeys()
+
     @game.canvas.setAttribute("oncontextmenu", "return false;")
     
     @gameTimer = @game.time.create()
@@ -66,7 +68,7 @@ class window.GameState extends Phaser.State
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     wood = new Item("wood", this, @game, 100, 10)
     @game.add.existing(wood)
-    window.items_layer.add(wood)
+    @items_layer.add(wood)
     well_1 = new Building("well", this, @game, 20, 150)
     @game.add.existing(well_1)
     @game.add.existing(new Button("well", @game, 500, 500, 2))
@@ -80,8 +82,6 @@ class window.GameState extends Phaser.State
 
     # test moving camera
     @game.world.setBounds(0, 0, 2000, 2000)
-    @cursors = @game.input.keyboard.createCursorKeys()
-
 
   update: ->
     if (@cursors.up.isDown)

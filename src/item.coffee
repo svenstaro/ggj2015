@@ -28,8 +28,10 @@ class window.Item extends Phaser.Sprite
       key = "wood"
     else if @gameType == "bread"
       key = "wood"
-    else if @gameType == "iron ingots"
+    else if @gameType == "iron_ingot"
       key = "wood"
+    else if @gameType == "chicken"
+      key = "chicken"
 
     super(game, x, y, key)
 
