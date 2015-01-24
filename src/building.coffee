@@ -6,7 +6,7 @@ class window.Building extends Phaser.Sprite
         new BuildingRecipe([], ["water"])
       ]
     else if @gameType == "wheat_farm"
-      key = "octocat"
+      key = "wheat_farm"
       @recipes = [
         new BuildingRecipe(["water"], ["straw", "wheat"])
       ]
@@ -41,7 +41,6 @@ class window.Building extends Phaser.Sprite
       @recipes = [
         new BuildingRecipe(["iron", "wood"], ["iron ingots"])
       ]
-
 
     super(game, x, y, key)
 
