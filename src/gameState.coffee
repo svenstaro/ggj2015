@@ -40,10 +40,16 @@ class window.GameState extends Phaser.State
       for y in [0..@map.width]
         @map.putTile(@game.rnd.integerInRange(0, tileset.total - 1), x, y)
 
+    #create group of items to place them above other objects
+    window.items_layer = @game.add.group()
+    window.items_layer.z = 2
+    
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
-    @game.add.existing(new Item("wood", this, @game, 100, 10))
+    wood = new Item("wood", this, @game, 100, 10)
+    @game.add.existing(wood)
+    window.items_layer.add(wood)
     @game.add.existing(new Building("well", this, @game, 20, 150))
     @game.add.existing(new Button("well", @game, 500, 500, 2))
     @game.add.existing(new Building("path", this, @game, 300, 200))
@@ -55,6 +61,7 @@ class window.GameState extends Phaser.State
     # test moving camera
     @game.world.setBounds(0, 0, 2000, 2000)
     window.cursors = @game.input.keyboard.createCursorKeys()
+
 
   update: ->
     if (cursors.up.isDown)
