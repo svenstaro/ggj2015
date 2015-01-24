@@ -30,4 +30,5 @@ class window.HoverImage extends Phaser.Image
 
   onClick: ->
     game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
-    this.destroy()
+    if not game.input.keyboard.isDown(Phaser.Keyboard.CONTROL)
+        this.destroy()
