@@ -18,12 +18,10 @@ class window.EnvObject extends Phaser.Sprite
   onGameTick: ->
     console.log("EnvObject.onGameTick #{@gameType}")
     if @gameType == "tree"
-      @x += 5
-      @y += 5
+      pass
     else if @gameType == "stone"
       pass
     else if @gameType == "iron"
       pass
     else if @gameType == "fruits"
-      @x -= 5
-      @y -= 5
+      pass

@@ -6,6 +6,7 @@ class window.GameState extends Phaser.State
   preload: ->
     console.log("load")
     @game.load.image("octocat", "img/ball.png")
+    @game.load.image("black_cat", "img/ball_01.png")
     # @game.add.image('wood', 'img/wood.png')
     # @game.add.image('fruits', 'img/fruits.png')
     # @game.add.image('stone', 'img/stone.png')
