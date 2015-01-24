@@ -14,9 +14,13 @@ class window.GameState extends Phaser.State
     # @game.add.image('iron', 'img/iron.png')
     #Buildings
     @game.load.image("well", "img/well.png")
+    @game.load.image("wheat_farm", "img/well.png")
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
-
+    #Items
+    @game.load.sprite("wood", "img/wood.png")
+    #EnvObjects
+    @game.load.sprite("tree", "img/tree.png")
 
   create: ->
     console.log("create")

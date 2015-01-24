@@ -3,7 +3,7 @@ class window.Building extends Phaser.Sprite
     if @gameType == "well"
       key = "well"
     else if @gameType == "wheat_farm"
-      key = "octocat"
+      key = "wheat_farm"
     else if @gameType == "chicken_farm"
       key = "octocat"
     else if @gameType == "cow_farm"
