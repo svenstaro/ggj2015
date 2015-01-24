@@ -1,5 +1,5 @@
 class window.HoverImage extends Phaser.Image
-  constructor: (game, @gameType, x, y) ->
+  constructor: (game, @gameType, x, y, @tileWidth) ->
     key = @gameType
     super(game, x, y, key)
     game.input.onDown.add(this.onClick, this)
@@ -20,14 +20,17 @@ class window.HoverImage extends Phaser.Image
       x = 0
     if y < 0
       y = 0
-    if x > map.widthInPixels - tileSize
-      x = map.widthInPixels - tileSize
-    if y > map.heightInPixels - tileSize
-      y = map.heightInPixels - tileSize
+    if x > map.widthInPixels - @tileWidth*tileSize
+      x = map.widthInPixels - @tileWidth*tileSize
+    if y > map.heightInPixels - @tileWidth*tileSize
+      y = map.heightInPixels - @tileWidth*tileSize
 
     @x = x
     @y = y
 
   onClick: ->
-    game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
-    this.destroy()
+    if game.input.mouse.button == Phaser.Mouse.LEFT_BUTTON
+        game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
+    else
+        game.input.onDown.remove(this.onClick, this)
+        this.destroy()

@@ -21,6 +21,9 @@ class window.GameState extends Phaser.State
 
   create: ->
     console.log("create")
+    
+    @game.canvas.setAttribute("oncontextmenu", "return false;")
+    
     @gameTimer = @game.time.create()
     @gameTimer.loop(333, @gameTick, this)
     @gameTimer.start()
@@ -42,9 +45,9 @@ class window.GameState extends Phaser.State
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     @game.add.existing(new Item("wood", this, @game, 100, 10))
     @game.add.existing(new Building("well", this, @game, 20, 150))
-    @game.add.existing(new Button("well", @game, 500, 500))
+    @game.add.existing(new Button("well", @game, 500, 500, 2))
     @game.add.existing(new Building("path", this, @game, 300, 200))
-    @game.add.existing(new Button("path", @game, 300, 200))
+    @game.add.existing(new Button("path", @game, 300, 200, 1))
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
     #wheatfarm.itemsIn(["water"])
