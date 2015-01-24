@@ -10,14 +10,20 @@ class window.GameState extends Phaser.State
     @game.load.image("wheat_farm", "img/wheatfarm.png")
     @game.load.image("path", "img/path.png")
     @game.load.image("hut", "img/hut.png")
+    @game.load.image("chicken_farm", "img/chickenfarm.png")
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
     @game.load.image("wood", "img/wood.png")
     @game.load.image("steak", "img/steak.png")
     @game.load.image("stone", "img/stone.png")
+    @game.load.image("cookie", "img/cookie.png")
+    @game.load.image("bread", "img/bread.png")
+    @game.load.image("iron", "img/uref_iron.png")
     #EnvObjects
     @game.load.image("tree", "img/tree.png")
+    @game.load.image("cave", "img/cave.png")
+    @game.load.image("shrub", "img/shrub.png")
 
   create: ->
     console.log("create")
@@ -43,6 +49,8 @@ class window.GameState extends Phaser.State
     #create group of items to place them above other objects
     window.items_layer = @game.add.group()
     window.items_layer.z = 2
+    window.buildings_layer = @game.add.group()
+    window.buildings_layer.z = 1
     
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
@@ -50,10 +58,14 @@ class window.GameState extends Phaser.State
     wood = new Item("wood", this, @game, 100, 10)
     @game.add.existing(wood)
     window.items_layer.add(wood)
-    @game.add.existing(new Building("well", this, @game, 20, 150))
+    console.log()
+    well_1 = new Building("well", this, @game, 20, 150)
+    @game.add.existing(well_1)
     @game.add.existing(new Button("well", @game, 500, 500, 2))
-    @game.add.existing(new Building("path", this, @game, 300, 200))
-    @game.add.existing(new Button("path", @game, 300, 200, 1))
+    path = new Building("path", this, @game, 300, 200)
+    @game.add.existing(path)
+    @game.add.existing(new Button("path", @game, 110, 20, 1))
+    window.buildings_layer.add(path)
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
     #wheatfarm.itemsIn(["water"])
