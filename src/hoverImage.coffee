@@ -1,5 +1,5 @@
 class window.HoverImage extends Phaser.Image
-  constructor: (game, @gameType x, y) ->
+  constructor: (game, @gameType, x, y) ->
     key = @gameType
     super(game, x, y, key)
     game.input.onDown.add(this.onClick, this)
