@@ -15,6 +15,7 @@ class window.GameState extends Phaser.State
     #Buildings
     @game.load.image("well", "img/well.png")
     @game.load.image("wheat_farm", "img/well.png")
+    @game.load.image("path", "img/path.png")
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
@@ -44,6 +45,8 @@ class window.GameState extends Phaser.State
     @game.add.existing(new Item("wood", this, @game, 100, 10))
     @game.add.existing(new Building("well", this, @game, 20, 150))
     @game.add.existing(new Button("well", @game, 500, 500))
+    @game.add.existing(new Building("path", this, @game, 300, 200))
+    @game.add.existing(new Button("path", @game, 300, 200))
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
     #wheatfarm.itemsIn(["water"])

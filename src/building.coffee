@@ -41,6 +41,9 @@ class window.Building extends Phaser.Sprite
       @recipes = [
         new BuildingRecipe(["iron", "wood"], ["iron ingots"])
       ]
+    else if @gameType == "path"
+      key = "path"
+      @recipes = []
 
     super(game, x, y, key)
 
