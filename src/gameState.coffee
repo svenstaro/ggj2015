@@ -18,9 +18,9 @@ class window.GameState extends Phaser.State
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
-    @game.load.sprite("wood", "img/wood.png")
+    @game.load.image("wood", "img/wood.png")
     #EnvObjects
-    @game.load.sprite("tree", "img/tree.png")
+    @game.load.image("tree", "img/tree.png")
 
   create: ->
     console.log("create")
