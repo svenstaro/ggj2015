@@ -49,45 +49,45 @@ class window.GameState extends Phaser.State
         @map.putTile(@game.rnd.integerInRange(0, tileset.total - 1), x, y)
 
     #create group of items to place them above other objects
-    window.items_layer = @game.add.group()
-    window.items_layer.z = 3
-    window.buildings_layer = @game.add.group()
-    window.buildings_layer.z = 2
-    window.environment_layer = @game.add.group()
-    window.environment_layer.z = 1
+    @button_layer = @game.add.group()
+    @button_layer.z = 4
+    @items_layer = @game.add.group()
+    @items_layer.z = 3
+    @buildings_layer = @game.add.group()
+    @buildings_layer.z = 2
+    @environment_layer = @game.add.group()
+    @environment_layer.z = 1
 
-    
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     wood = new Item("wood", this, @game, 100, 10)
     @game.add.existing(wood)
     window.items_layer.add(wood)
-    console.log()
     well_1 = new Building("well", this, @game, 20, 150)
     @game.add.existing(well_1)
     @game.add.existing(new Button("well", @game, 500, 500, 2))
     path = new Building("path", this, @game, 300, 200)
     @game.add.existing(path)
     @game.add.existing(new Button("path", @game, 110, 20, 1))
-    window.buildings_layer.add(path)
+    @buildings_layer.add(path)
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
-    #wheatfarm.itemsIn(["water"])
+    wheatfarm.itemsIn(["water"])
 
     # test moving camera
     @game.world.setBounds(0, 0, 2000, 2000)
-    window.cursors = @game.input.keyboard.createCursorKeys()
+    @cursors = @game.input.keyboard.createCursorKeys()
 
 
   update: ->
-    if (cursors.up.isDown)
+    if (@cursors.up.isDown)
       game.camera.y -= 4
-    else if (cursors.down.isDown)
+    else if (@cursors.down.isDown)
       game.camera.y += 4
-    if (cursors.left.isDown)
+    if (@cursors.left.isDown)
       game.camera.x -= 4
-    else if (cursors.right.isDown)
+    else if (@cursors.right.isDown)
       game.camera.x += 4
 
   gameTick: ->
