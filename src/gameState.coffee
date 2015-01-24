@@ -46,28 +46,18 @@ class window.GameState extends Phaser.State
     @game.add.existing(new Button("well", @game, 500, 500))
 
     # test moving camera
-    @game.world.setBounds(-1000, -1000, 2000, 2000)
+    @game.world.setBounds(0, 0, 2000, 2000)
     window.cursors = @game.input.keyboard.createCursorKeys()
 
   update: ->
     if (cursors.up.isDown)
-      if (cursors.up.shiftKey)
-      else
-        game.camera.y -= 4
+      game.camera.y -= 4
     else if (cursors.down.isDown)
-      if (cursors.down.shiftKey)
-      else
-        game.camera.y += 4
+      game.camera.y += 4
     if (cursors.left.isDown)
-      if (cursors.left.shiftKey)
-        game.world.rotation -= 0.05
-      else
-        game.camera.x -= 4
+      game.camera.x -= 4
     else if (cursors.right.isDown)
-      if (cursors.right.shiftKey)
-        game.world.rotation += 0.05
-      else
-        game.camera.x += 4
+      game.camera.x += 4
 
   gameTick: ->
     @gameTickEvent.dispatch(this)
