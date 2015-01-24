@@ -16,7 +16,6 @@ class window.EnvObject extends Phaser.Sprite
     console.log("EnvObject.constructor #{@gameType}")
 
   onGameTick: ->
-    console.log("EnvObject.onGameTick #{@gameType}")
     if @gameType == "tree"
       @x += 0
       @y += 0
@@ -29,3 +28,4 @@ class window.EnvObject extends Phaser.Sprite
     else if @gameType == "shrub"
       @x -= 0
       @y -= 0
+

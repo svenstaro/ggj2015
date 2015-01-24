@@ -25,11 +25,10 @@ class window.GameState extends Phaser.State
     @game.add.existing(new Item("wood", this, @game, 100, 10))
 
     @map = @game.add.tilemap()
-    @layer = @map.create('level1', 30, 30, 32, 32)
-    @map.addTilesetImage('octocat', 'octocat')
-    for lol in [0..30]
-      @map.putTile('octocat', lol, lol)
-
+    @layer = @map.create('level1', 10, 10, 32, 32)
+    tileset = @map.addTilesetImage('octocat')
+    @map.putTile(0, 0, 0)
+    #@map.random(0, 0, 10, 10)
 
   gameTick: ->
     @gameTickEvent.dispatch(this)
