@@ -1,7 +1,7 @@
 class window.EnvObject extends Phaser.Sprite
   constructor: (@gameType, state, game, x, y) ->
     if @gameType == "tree"
-      key = "octocat"
+      key = "tree"
     else if @gameType == "cave"
       key = "octocat"
     else if @gameType == "mountain"
