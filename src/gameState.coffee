@@ -43,6 +43,7 @@ class window.GameState extends Phaser.State
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     @game.add.existing(new Item("wood", this, @game, 100, 10))
     @game.add.existing(new Building("well", this, @game, 20, 150))
+    @game.add.existing(new Button("well", @game, 500, 500))
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
     #wheatfarm.itemsIn(["water"])
