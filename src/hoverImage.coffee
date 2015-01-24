@@ -4,6 +4,8 @@ class window.HoverImage extends Phaser.Image
     super(game, x, y, key)
     game.input.onDown.add(this.onClick, this)
     window.HoverImage.current = this
+    @alpha = 0.5
+    @placable = false
 
   update: ->
     map = game.state.getCurrentState().map
@@ -29,8 +31,14 @@ class window.HoverImage extends Phaser.Image
     @x = x
     @y = y
 
+    if @placable
+      @tint = 0x55FF55
+    else
+      @tint = 0xFF5555
+
   onClick: ->
     if game.input.mouse.button == Phaser.Mouse.LEFT_BUTTON
+      if @placable
         game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
     else
         game.input.onDown.remove(this.onClick, this)
