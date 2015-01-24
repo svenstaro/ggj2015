@@ -32,5 +32,33 @@ class window.GameState extends Phaser.State
     @map.putTile(0, 0, 0)
     #@map.random(0, 0, 10, 10)
 
+    #test moving camera
+    @game.world.setBounds(-1000, -1000, 2000, 2000)
+    window.cursors = @game.input.keyboard.createCursorKeys()
+
+  update: ->
+
+    console.log("update")
+    if (cursors.up.isDown)
+      if (cursors.up.shiftKey)
+        console.log("lol")
+      else
+        game.camera.y -= 4;
+    else if (cursors.down.isDown)
+      if (cursors.down.shiftKey)
+       console.log("lol1")
+      else
+        game.camera.y += 4;
+    if (cursors.left.isDown)
+      if (cursors.left.shiftKey)
+        game.world.rotation -= 0.05;
+      else
+        game.camera.x -= 4;
+    else if (cursors.right.isDown)
+      if (cursors.right.shiftKey)
+        game.world.rotation += 0.05;
+      else
+        game.camera.x += 4;
+
   gameTick: ->
     @gameTickEvent.dispatch(this)
