@@ -17,7 +17,6 @@ class window.Building extends Phaser.Sprite
     else if @gameType == "refinery"
       key = "black_cat"
 
-
     super(game, x, y, key)
 
     state.gameTickEvent.add(@onGameTick, this)
