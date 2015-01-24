@@ -50,9 +50,12 @@ class window.GameState extends Phaser.State
 
     #create group of items to place them above other objects
     window.items_layer = @game.add.group()
-    window.items_layer.z = 2
+    window.items_layer.z = 3
     window.buildings_layer = @game.add.group()
-    window.buildings_layer.z = 1
+    window.buildings_layer.z = 2
+    window.environment_layer = @game.add.group()
+    window.environment_layer.z = 1
+
     
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
