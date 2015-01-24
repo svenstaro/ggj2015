@@ -21,6 +21,9 @@ class window.GameState extends Phaser.State
 
   create: ->
     console.log("create")
+    
+    @game.canvas.setAttribute("oncontextmenu", "return false;")
+    
     @gameTimer = @game.time.create()
     @gameTimer.loop(333, @gameTick, this)
     @gameTimer.start()
