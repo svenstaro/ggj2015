@@ -21,8 +21,14 @@ class window.GameState extends Phaser.State
 
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
-    @game.add.existing(new EnvObject("fruits", this, @game, 200, 100))
+    @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
+    @game.add.existing(new Item("wood", this, @game, 100, 10))
 
+    @map = @game.add.tilemap()
+    @layer = @map.create('level1', 10, 10, 32, 32)
+    tileset = @map.addTilesetImage('octocat')
+    @map.putTile(0, 0, 0)
+    #@map.random(0, 0, 10, 10)
 
   gameTick: ->
     @gameTickEvent.dispatch(this)

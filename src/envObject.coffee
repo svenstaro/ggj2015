@@ -2,12 +2,12 @@ class window.EnvObject extends Phaser.Sprite
   constructor: (@gameType, state, @game, x, y) ->
     if @gameType == "tree"
       @key = "octocat"
-    else if @gameType == "stone"
+    else if @gameType == "cave"
       @key = "octocat"
-    else if @gameType == "iron"
+    else if @gameType == "mountain"
       @key = "octocat"
-    else if @gameType == "fruits"
-      @key = "octocat"
+    else if @gameType == "shrub"
+      @key = "black_cat"
 
     super(@game, x, y, @key)
 
@@ -16,12 +16,16 @@ class window.EnvObject extends Phaser.Sprite
     console.log("EnvObject.constructor #{@gameType}")
 
   onGameTick: ->
-    console.log("EnvObject.onGameTick #{@gameType}")
     if @gameType == "tree"
-      pass
-    else if @gameType == "stone"
-      pass
-    else if @gameType == "iron"
-      pass
-    else if @gameType == "fruits"
-      pass
+      @x += 0
+      @y += 0
+    else if @gameType == "cave"
+      @x += 0
+      @y += 0
+    else if @gameType == "mountain"
+      @x += 0
+      @y += 0
+    else if @gameType == "shrub"
+      @x -= 0
+      @y -= 0
+
