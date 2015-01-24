@@ -5,20 +5,16 @@ class window.GameState extends Phaser.State
 
   preload: ->
     console.log("load")
-    @game.load.image("octocat", "img/ball.png")
-    @game.load.image("black_cat", "img/ball_01.png")
-
-    # @game.add.image('wood', 'img/wood.png')
-    # @game.add.image('fruits', 'img/fruits.png')
-    # @game.add.image('stone', 'img/stone.png')
-    # @game.add.image('iron', 'img/iron.png')
     #Buildings
     @game.load.image("well", "img/well.png")
     @game.load.image("wheat_farm", "img/well.png")
+    @game.load.image("path", "img/path.png")
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
     @game.load.image("wood", "img/wood.png")
+    @game.load.image("steak", "img/steak.png")
+    @game.load.image("stone", "img/stone.png")
     #EnvObjects
     @game.load.image("tree", "img/tree.png")
 
@@ -30,8 +26,10 @@ class window.GameState extends Phaser.State
     @gameTickEvent = new Phaser.Signal()
 
     @map = @game.add.tilemap()
-    @layer = @map.create('groundlevel', 10, 10, 64, 64)
+    @layer = @map.create('groundlevel', 16, 12, 64, 64)
     tileset = @map.addTilesetImage('ground-tiles')
+
+    console.log(@map.height, @map.width)
 
     # init map
     for x in [0..@map.height]
@@ -44,6 +42,8 @@ class window.GameState extends Phaser.State
     @game.add.existing(new Item("wood", this, @game, 100, 10))
     @game.add.existing(new Building("well", this, @game, 20, 150))
     @game.add.existing(new Button("well", @game, 500, 500))
+    @game.add.existing(new Building("path", this, @game, 300, 200))
+    @game.add.existing(new Button("path", @game, 300, 200))
     wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
     @game.add.existing(wheatfarm)
     #wheatfarm.itemsIn(["water"])
