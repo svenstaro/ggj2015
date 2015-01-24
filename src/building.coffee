@@ -11,7 +11,7 @@ class window.Building extends Phaser.Sprite
         new BuildingRecipe(["water"], ["straw", "wheat"])
       ]
     else if @gameType == "chicken_farm"
-      key = "octocat"
+      key = "chicken_farm"
       @recipes = [
         new BuildingRecipe(["fruits"], ["egg"]),
         new BuildingRecipe(["straw"], ["chicken"])
