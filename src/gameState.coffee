@@ -11,6 +11,8 @@ class window.GameState extends Phaser.State
     # @game.add.image('fruits', 'img/fruits.png')
     # @game.add.image('stone', 'img/stone.png')
     # @game.add.image('iron', 'img/iron.png')
+    #Buildings
+    @game.load.image("well", "img/well.png")
 
   create: ->
     console.log("create")
@@ -23,7 +25,6 @@ class window.GameState extends Phaser.State
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
     @game.add.existing(new Item("wood", this, @game, 100, 10))
-    @game.add.existing(new Building("hut", this, @game, 300, 17))
     @game.add.existing(new Building("well", this, @game, 20, 150))
 
     @map = @game.add.tilemap()
@@ -37,8 +38,6 @@ class window.GameState extends Phaser.State
     window.cursors = @game.input.keyboard.createCursorKeys()
 
   update: ->
-
-    console.log("update")
     if (cursors.up.isDown)
       if (cursors.up.shiftKey)
         console.log("lol")

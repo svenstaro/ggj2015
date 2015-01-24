@@ -1,7 +1,7 @@
 class window.Building extends Phaser.Sprite
   constructor: (@gameType, state, game, x, y) ->
     if @gameType == "well"
-      key = "octocat"
+      key = "well"
     else if @gameType == "wheat_farm"
       key = "octocat"
     else if @gameType == "chicken_farm"
