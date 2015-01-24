@@ -17,27 +17,27 @@ class window.Building extends Phaser.Sprite
         new BuildingRecipe(["straw"], ["chicken"])
       ]
     else if @gameType == "cow_farm"
-      key = "octocat"
+      key = "cow_farm"
       @recipes = [
         new BuildingRecipe(["water"], ["milk"])
         new BuildingRecipe(["straw"], ["steak"])
       ]
     else if @gameType == "hut"
-      key = "black_cat"
+      key = "hut"
       @recipes = [
         new BuildingRecipe(["food", "water"], ["baby"])
       ]
     else if @gameType == "storage"
-      key = "black_cat"
+      key = "storage"
       @recipes = []
     else if @gameType == "bakery"
-      key = "black_cat"
+      key = "bakery"
       @recipes = [
         new BuildingRecipe(["wheat", "egg", "wood", "milk", "fruit"], ["cookie"]),
         new BuildingRecipe(["wheat", "egg", "wood", "water"], ["bread"])
       ]
     else if @gameType == "refinery"
-      key = "black_cat"
+      key = "refinery"
       @recipes = [
         new BuildingRecipe(["iron", "wood"], ["iron ingots"])
       ]
