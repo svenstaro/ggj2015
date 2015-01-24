@@ -54,7 +54,7 @@ class window.Item extends Phaser.Sprite
       @x += 1
       @y += 1
     else if @gameType == "straw"
-     @x += 1
+      @x += 1
       @y += 1
     else if @gameType == "wheat"
       @x += 1
