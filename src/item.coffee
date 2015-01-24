@@ -38,65 +38,49 @@ class window.Item extends Phaser.Sprite
     console.log("Item.constructor #{@gameType}")
 
   onGameTick: ->
-    console.log("Item.onGameTick #{@gameType}")
     if @gameType == "wood"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "fruits"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "stone"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "iron"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "water"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "straw"
-      console.log("Get some piece of me!!!")
-      @x += 1
+     @x += 1
       @y += 1
     else if @gameType == "wheat"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "egg"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "milk"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "steak"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "baby"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "worker"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "cookie"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "bread"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     else if @gameType == "iron ingots"
-      console.log("Get some piece of me!!!")
       @x += 1
       @y += 1
     
