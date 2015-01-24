@@ -1,6 +1,7 @@
 class window.BuildingRecipe
   constructor: (@inItems, @outItems) ->
   
+  #returns true if the given array contains the same items as @inItems
   matches: (items) ->
     inItems = @inItems.slice(0)
     for item in items
