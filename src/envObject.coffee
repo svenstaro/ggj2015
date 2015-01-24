@@ -1,15 +1,15 @@
 class window.EnvObject extends Phaser.Sprite
-  constructor: (@gameType, state, @game, x, y) ->
+  constructor: (@gameType, state, game, x, y) ->
     if @gameType == "tree"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "cave"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "mountain"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "shrub"
-      @key = "black_cat"
+      key = "black_cat"
 
-    super(@game, x, y, @key)
+    super(game, x, y, key)
 
     state.gameTickEvent.add(@onGameTick, this)
 
@@ -28,4 +28,3 @@ class window.EnvObject extends Phaser.Sprite
     else if @gameType == "shrub"
       @x -= 0
       @y -= 0
-

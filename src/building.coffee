@@ -1,24 +1,24 @@
 class window.Building extends Phaser.Sprite
-  constructor: (@gameType, state, @game, x, y) ->
+  constructor: (@gameType, state, game, x, y) ->
     if @gameType == "well"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "wheat_farm"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "chicken_farm"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "cow_farm"
-      @key = "octocat"
+      key = "octocat"
     else if @gameType == "hut"
-      @key = "black_cat"
+      key = "black_cat"
     else if @gameType == "storage"
-      @key = "black_cat"
+      key = "black_cat"
     else if @gameType == "backery"
-      @key = "black_cat"
+      key = "black_cat"
     else if @gameType == "refinery"
-      @key = "black_cat"
+      key = "black_cat"
 
 
-    super(@game, x, y, @key)
+    super(game, x, y, key)
 
     state.gameTickEvent.add(@onGameTick, this)
 
@@ -49,4 +49,3 @@ class window.Building extends Phaser.Sprite
     else if @gameType == "refinery"
       @x += 0
       @y += 0
- 
