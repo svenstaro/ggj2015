@@ -7,7 +7,7 @@ class window.EnvObject extends Phaser.Sprite
     else if @gameType == "iron"
       @key = "octocat"
     else if @gameType == "fruits"
-      @key = "octocat"
+      @key = "black_cat"
 
     super(@game, x, y, @key)
 
@@ -18,10 +18,14 @@ class window.EnvObject extends Phaser.Sprite
   onGameTick: ->
     console.log("EnvObject.onGameTick #{@gameType}")
     if @gameType == "tree"
-      pass
+      @x += 1
+      @y += 1
     else if @gameType == "stone"
-      pass
+      @x += 1
+      @y += 1
     else if @gameType == "iron"
-      pass
+      @x += 1
+      @y += 1
     else if @gameType == "fruits"
-      pass
+      @x -= 1
+      @y -= 1
