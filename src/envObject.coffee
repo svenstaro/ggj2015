@@ -16,7 +16,6 @@ class window.EnvObject extends Phaser.Sprite
     console.log("EnvObject.constructor #{@gameType}")
 
   onGameTick: ->
-    console.log("EnvObject.onGameTick #{@gameType}")
     if @gameType == "tree"
       @x += 1
       @y += 1
