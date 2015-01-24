@@ -7,7 +7,7 @@ class window.GameState extends Phaser.State
     console.log("load")
     #Buildings
     @game.load.image("well", "img/well.png")
-    @game.load.image("wheat_farm", "img/well.png")
+    @game.load.image("wheat_farm", "img/wheatfarm.png")
     @game.load.image("path", "img/path.png")
     @game.load.image("hut", "img/hut.png")
     #Ground
