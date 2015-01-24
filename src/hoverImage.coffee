@@ -5,19 +5,24 @@ class window.HoverImage extends Phaser.Image
 
   update: ->
     map = game.state.getCurrentState().map
+
     tileSize = map.tileWidth
-    console.log()
-    x = game.input.mousePointer.x - (game.input.mousePointer.x % tileSize)
-    y = game.input.mousePointer.y - (game.input.mousePointer.y % tileSize)
+
+    offsetX = map.widthInPixels/2 - game.camera.position.x
+    offsetY = map.heightInPixels/2 - game.camera.position.y
+    
+    mouseX = game.input.mousePointer.x - offsetX
+    mouseY = game.input.mousePointer.y - offsetY
+    x = mouseX - (mouseX % tileSize)
+    y = mouseY - (mouseY % tileSize)
     if x < 0
       x = 0
     if y < 0
       y = 0
-    if x > map.widthInPixels
+    if x >= map.widthInPixels
       x = map.widthInPixels - tileSize
-    if y > map.heightInPixels
+    if y >= map.heightInPixels
       y = map.heightInPixels - tileSize
-
 
     @x = x
     @y = y

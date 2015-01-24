@@ -31,8 +31,10 @@ class window.GameState extends Phaser.State
     @gameTickEvent = new Phaser.Signal()
 
     @map = @game.add.tilemap()
-    @layer = @map.create('groundlevel', 10, 10, 64, 64)
+    @layer = @map.create('groundlevel', 16, 12, 64, 64)
     tileset = @map.addTilesetImage('ground-tiles')
+
+    console.log(@map.height, @map.width)
 
     # init map
     for x in [0..@map.height]
