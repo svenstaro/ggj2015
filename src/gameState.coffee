@@ -22,6 +22,9 @@ class window.GameState extends Phaser.State
     @game.load.image("iron", "img/uref_iron.png")
     @game.load.image("egg", "img/eggs.png")
     @game.load.image("straw", "img/straw.png")
+    @game.load.image("iron_ingot", "img/iron_ingot.png")
+    @game.load.image("wheat", "img/wheat.png")
+    @game.load.image("chicken", "img/chicken.png")
     #EnvObjects
     @game.load.image("tree", "img/tree.png")
     @game.load.image("cave", "img/cave.png")

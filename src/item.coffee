@@ -68,6 +68,9 @@ class window.Item extends Phaser.Sprite
     else if @gameType == "steak"
       @x += 1
       @y += 1
+    else if @gameType == "chicken"
+      @x += 1
+      @y += 1
     else if @gameType == "baby"
       @x += 1
       @y += 1
@@ -80,6 +83,6 @@ class window.Item extends Phaser.Sprite
     else if @gameType == "bread"
       @x += 1
       @y += 1
-    else if @gameType == "iron ingots"
+    else if @gameType == "iron_ingot"
       @x += 1
       @y += 1
