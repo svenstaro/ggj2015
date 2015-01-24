@@ -29,6 +29,8 @@ class window.HoverImage extends Phaser.Image
     @y = y
 
   onClick: ->
-    game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
-    if not game.input.keyboard.isDown(Phaser.Keyboard.CONTROL)
+    if game.input.mouse.button == Phaser.Mouse.LEFT_BUTTON
+        game.add.existing(new Building(@gameType, game.state.getCurrentState(), game, @x, @y))
+    else
+        game.input.onDown.remove(this.onClick, this)
         this.destroy()
