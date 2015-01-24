@@ -5,7 +5,7 @@ class window.Button extends Phaser.Button
 
   onClick: ->
     @game.add.existing(new HoverImage(@game,
-      @key,
+      @gameType,
       game.input.mousePointer.x,
       game.input.mousePointer.y))
     console.log("roflcoptertest")
