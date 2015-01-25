@@ -6,16 +6,11 @@ class window.GameState extends Phaser.State
   preload: ->
     console.log("load")
     #Buildings
-    @game.load.image("well", "img/well.png")
-    @game.load.image("well_01", "img/well_01.png")
-    @game.load.image("wheat_farm", "img/wheatfarm.png")
-    @game.load.image("wheat_farm_01", "img/wheatfarm_01.png")
-    @game.load.image("path_01", "img/path_01.png")
-    @game.load.image("path", "img/path.png")
-    @game.load.image("hut", "img/hut.png")
-    @game.load.image("hut_01", "img/hut_01.png")
+    @game.load.image("well", "img/well_01.png").scale
+    @game.load.image("wheat_farm", "img/wheatfarm_01.png")
+    @game.load.image("path", "img/path_01.png")
+    @game.load.image("hut", "img/hut_01.png")
     @game.load.image("chicken_farm", "img/chickenfarm_01.png")
-    @game.load.image("chicken_farm_01", "img/chickenfarm_01.png")
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
@@ -87,15 +82,15 @@ class window.GameState extends Phaser.State
     @style = {fill:"white", font:"14px Arial"}
     
     #buttons on the right edge of the screen
-    @button_layer.add(@game.add.existing(new Button("well_01", @game, 900, 25, 2)))
+    @button_layer.add(@game.add.existing(new Button("well", @game, 900, 25, 2)))
     text_well = @game.add.text(885, 3, "A well: water", @style)
-    @button_layer.add(@game.add.existing(new Button("wheat_farm_01", @game, 900, 150, 3)))
+    @button_layer.add(@game.add.existing(new Button("wheat_farm", @game, 900, 150, 3)))
     text_well = @game.add.text(875, 113, "Farm1: wheat", @style)
-    @button_layer.add(@game.add.existing(new Button("chicken_farm_01", @game, 900, 250, 3)))
+    @button_layer.add(@game.add.existing(new Button("chicken_farm", @game, 900, 250, 3)))
     text_well = @game.add.text(855, 223, "Fram2: eggs, chicken", @style)
-    @button_layer.add(@game.add.existing(new Button("hut_01", @game, 900, 350, 3)))
+    @button_layer.add(@game.add.existing(new Button("hut", @game, 900, 350, 3)))
     text_well = @game.add.text(855, 323, "Hut: babies, workers", @style)
-    @button_layer.add(@game.add.existing(new Button("path_01", @game, 920, 450, 1)))
+    @button_layer.add(@game.add.existing(new Button("path", @game, 920, 450, 1)))
     text_well = @game.add.text(855, 423, "Road: workers move", @style)
     # test moving camera
     @game.world.setBounds(0, 0, 2000, 2000)
