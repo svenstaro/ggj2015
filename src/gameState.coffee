@@ -36,6 +36,7 @@ class window.GameState extends Phaser.State
     @game.physics.startSystem(Phaser.Physics.ARCADE)
 
     @cursors = @game.input.keyboard.createCursorKeys()
+    @muteKey = @game.input.keyboard.addKey("m")
 
     @game.canvas.setAttribute("oncontextmenu", "return false;")
     
@@ -106,11 +107,15 @@ class window.GameState extends Phaser.State
     # test moving camera
     @game.world.setBounds(0, 0, 1000, 600)
     #audio background
-    music = @game.add.audio("background_sound")
-    music.play()
-    music.volume = 4
-
-  update: ->
+    @music = @game.add.audio("background_sound")
+    @music.play()
+    @music.mute = true
+    @music.volume = 4
+    
+    update: ->
+    if (@muteKey.isDown)
+      console.log("lol")
+      @music.mute = true
     #if (@cursors.up.isDown)
     #  game.camera.y -= 4
     #else if (@cursors.down.isDown)
