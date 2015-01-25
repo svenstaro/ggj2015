@@ -35,8 +35,6 @@ class window.HoverImage extends Phaser.Sprite
     @y = y
     colliding = @game.physics.arcade.overlap(this, game.state.getCurrentState().buildings_layer)
     @placable = !colliding
-    if colliding
-      console.log "omg"
 
     if @placable
       @tint = 0x55FF55
@@ -56,7 +54,8 @@ class window.HoverImage extends Phaser.Sprite
             this.destroy()
           @counter = @counter + 1
         else
-          game.add.existing(new Building(@gameType , game.state.getCurrentState(), game, @x, @y))
+          new_building = game.add.existing(new Building(@gameType , game.state.getCurrentState(), game, @x, @y))
+          game.state.getCurrentState().buildings_layer.add(new_building)
     else
         game.input.onDown.remove(this.onClick, this)
         window.HoverImage.current = null
