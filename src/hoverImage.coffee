@@ -8,6 +8,7 @@ class window.HoverImage extends Phaser.Image
     window.HoverImage.current = this
     @alpha = 0.5
     @placable = false
+    @game.physics.arcade.enable(this)
 
   update: ->
     map = game.state.getCurrentState().map
@@ -32,6 +33,11 @@ class window.HoverImage extends Phaser.Image
 
     @x = x
     @y = y
+
+    colliding = @game.physics.arcade.collide(this, game.state.getCurrentState().buildings_layer)
+    @placable = !colliding
+    if colliding
+      console.log "omg"
 
     if @placable
       @tint = 0x55FF55
