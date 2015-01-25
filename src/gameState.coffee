@@ -88,15 +88,15 @@ class window.GameState extends Phaser.State
     @button_layer.add(@game.add.existing(new Button("path", @game, 900, 450, 1)))
     text_well = @game.add.text(855, 423, "Road: workers move", @style)
     # test moving camera
-    @game.world.setBounds(0, 0, 2000, 2000)
+    @game.world.setBounds(0, 0, 1000, 600)
 
   update: ->
-    if (@cursors.up.isDown)
-      game.camera.y -= 4
-    else if (@cursors.down.isDown)
-      game.camera.y += 4
-    if (@cursors.left.isDown)
-      game.camera.x -= 4
+    #if (@cursors.up.isDown)
+    #  game.camera.y -= 4
+    #else if (@cursors.down.isDown)
+    #  game.camera.y += 4
+    #if (@cursors.left.isDown)
+    #  game.camera.x -= 4
     #else if (@cursors.right.isDown)
      # game.camera.x += 4
 
