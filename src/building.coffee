@@ -1,6 +1,7 @@
 class window.Building extends Phaser.Sprite
   constructor: (@gameType, state, game, x, y) ->
     key = @gameType
+    @cooldown = 5
     
     if @gameType == "well"
       @recipes = [
@@ -45,7 +46,7 @@ class window.Building extends Phaser.Sprite
     console.log("Building.constructor #{@gameType}")
 
   onGameTick: ->
-    #@itemsIn([])
+    @itemsIn([])
     
   itemsIn: (items) ->
     for recipe in @recipes
@@ -53,4 +54,8 @@ class window.Building extends Phaser.Sprite
         @itemsOut(recipe.outItems)
     
   itemsOut: (items) ->
-    #console.log(items)
+    if @cooldown == 0
+      console.log(items)
+      @cooldown = 10
+    else
+      @cooldown -= 1
