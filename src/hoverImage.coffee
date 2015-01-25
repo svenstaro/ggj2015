@@ -95,6 +95,20 @@ class window.HoverImage extends Phaser.Sprite
         @count = 0
         while @running and @count < 20
           @tempPath[@axis] = @tempPath[@axis] + @direction*tileSize
+          # If Position is already used, this needs to be stopped 
+
+          @pointer = new Phaser.Pointer(@game, 1)
+          @pointer.x = @tempPath.x
+          @pointer.y = @tempPath.y
+          @coll = false
+          callbackfunc = -> (this.coll = true)
+          rofl = @game.physics.arcade.getObjectsUnderPointer(@pointer, @game.state.getCurrentState().buildings_layer, callbackfunc, this)
+          if @coll
+            window.HoverImage.current = null
+            game.input.onDown.remove(this.onClick, this)
+            this.destroy()
+            return
+          
           if @tempPath[@axis] != @pathList[i+1][@axis]
             @finalpath.push({x: @tempPath.x, y: @tempPath.y, direction: @direction, axis: @axis})
           else
