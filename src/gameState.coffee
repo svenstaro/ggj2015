@@ -14,20 +14,17 @@ class window.GameState extends Phaser.State
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
-    @game.load.image("wood", "img/wood.png")
-    @game.load.image("steak", "img/steak.png")
-    @game.load.image("stone", "img/stone.png")
-    @game.load.image("cookie", "img/cookie.png")
-    @game.load.image("bread", "img/bread.png")
-    @game.load.image("iron", "img/uref_iron.png")
-    @game.load.image("egg", "img/eggs.png")
-    @game.load.image("straw", "img/straw.png")
-    @game.load.image("iron ingot", "img/iron_ingot.png")
-    @game.load.image("wheat", "img/wheat.png")
-    @game.load.image("chicken", "img/chicken.png")
+    @game.load.image("wood", "img/wood_01.png")
+    @game.load.image("stone", "img/stone_01.png")
+    @game.load.image("egg", "img/eggs_01.png")
+    @game.load.image("straw", "img/straw_01.png")
+    @game.load.image("wheat", "img/wheat_01.png")
+    @game.load.image("fruits", "img/fruits.png")
+    @game.load.image("chicken", "img/chicken_01.png")
+    @game.load.image("water", "img/water_01.png")
     #EnvObjects
-    @game.load.image("tree", "img/tree.png")
-    @game.load.image("cave", "img/cave.png")
+    @game.load.image("tree", "img/tree_01.png")
+    @game.load.image("cave", "img/cave_01.png")
     @game.load.image("shrub", "img/shrub.png")
 
   create: ->
@@ -73,23 +70,17 @@ class window.GameState extends Phaser.State
     @buildings_layer.enableBody = true
     @buildings_layer.z = 2
     @environment_layer = @game.add.group()
+    @environment_layer.physicsBodyType = Phaser.Physics.ARCADE
+    @environment_layer.enableBody = true
     @environment_layer.z = 1
 
-    # for testing
-    @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
-    @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
-    wood = new Item("wood", this, @game, 100, 10)
-    @game.add.existing(wood)
-    @items_layer.add(wood)
-    well_1 = new Building("well", this, @game, 20, 150)
-    @game.add.existing(well_1)
-    @game.add.existing(new Button("well", @game, 500, 500, 2))
-    path = new Building("path", this, @game, 300, 200)
-    @game.add.existing(path)
-    @game.add.existing(new Button("path", @game, 110, 20, 1))
-    @buildings_layer.add(path)
-    wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
-    @game.add.existing(wheatfarm)
+    # EnvObjects on random locations
+    for i in [0..10]
+      @environment_layer.add(@game.add.existing(new EnvObject("tree", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
+    for i in [0..15]
+      @environment_layer.add(@game.add.existing(new EnvObject("shrub", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
+    for i in [0..5]
+      @environment_layer.add(@game.add.existing(new EnvObject("cave", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
     #style of the text for buttons
     @style = {fill:"white", font:"14px Arial"}
     
@@ -105,15 +96,15 @@ class window.GameState extends Phaser.State
     @button_layer.add(@game.add.existing(new Button("path", @game, 900, 450, 1)))
     text_well = @game.add.text(855, 423, "Road: workers move", @style)
     # test moving camera
-    @game.world.setBounds(0, 0, 2000, 2000)
+    @game.world.setBounds(0, 0, 1000, 600)
 
   update: ->
-    if (@cursors.up.isDown)
-      game.camera.y -= 4
-    else if (@cursors.down.isDown)
-      game.camera.y += 4
-    if (@cursors.left.isDown)
-      game.camera.x -= 4
+    #if (@cursors.up.isDown)
+    #  game.camera.y -= 4
+    #else if (@cursors.down.isDown)
+    #  game.camera.y += 4
+    #if (@cursors.left.isDown)
+    #  game.camera.x -= 4
     #else if (@cursors.right.isDown)
      # game.camera.x += 4
 

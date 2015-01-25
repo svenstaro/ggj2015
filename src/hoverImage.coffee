@@ -33,8 +33,9 @@ class window.HoverImage extends Phaser.Sprite
 
     @x = x
     @y = y
-    colliding = @game.physics.arcade.overlap(this, game.state.getCurrentState().buildings_layer)
-    @placable = !colliding
+    colliding_building = @game.physics.arcade.overlap(this, game.state.getCurrentState().buildings_layer)
+    colliding_environment = @game.physics.arcade.overlap(this, game.state.getCurrentState().environment_layer)
+    @placable = !colliding_building and !colliding_environment
 
     if @placable
       @tint = 0x55FF55
@@ -94,6 +95,20 @@ class window.HoverImage extends Phaser.Sprite
         @count = 0
         while @running and @count < 20
           @tempPath[@axis] = @tempPath[@axis] + @direction*tileSize
+          # If Position is already used, this needs to be stopped 
+
+          @pointer = new Phaser.Pointer(@game, 1)
+          @pointer.x = @tempPath.x
+          @pointer.y = @tempPath.y
+          @coll = false
+          callbackfunc = -> (this.coll = true)
+          rofl = @game.physics.arcade.getObjectsUnderPointer(@pointer, @game.state.getCurrentState().buildings_layer, callbackfunc, this)
+          if @coll
+            window.HoverImage.current = null
+            game.input.onDown.remove(this.onClick, this)
+            this.destroy()
+            return
+          
           if @tempPath[@axis] != @pathList[i+1][@axis]
             @finalpath.push({x: @tempPath.x, y: @tempPath.y, direction: @direction, axis: @axis})
           else

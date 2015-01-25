@@ -3,11 +3,9 @@ class window.EnvObject extends Phaser.Sprite
     if @gameType == "tree"
       key = "tree"
     else if @gameType == "cave"
-      key = "wood"
-    else if @gameType == "mountain"
-      key = "wood"
+      key = "cave"
     else if @gameType == "shrub"
-      key = "wood"
+      key = "shrub"
 
     super(game, x, y, key)
 
@@ -20,9 +18,6 @@ class window.EnvObject extends Phaser.Sprite
       @x += 0
       @y += 0
     else if @gameType == "cave"
-      @x += 0
-      @y += 0
-    else if @gameType == "mountain"
       @x += 0
       @y += 0
     else if @gameType == "shrub"
