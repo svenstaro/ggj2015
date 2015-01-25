@@ -1,4 +1,4 @@
-class window.HoverImage extends Phaser.Image
+class window.HoverImage extends Phaser.Sprite
   constructor: (game, @gameType, x, y, @tileWidth) ->
     @counter = 0
     @pathList = []
@@ -8,7 +8,7 @@ class window.HoverImage extends Phaser.Image
     window.HoverImage.current = this
     @alpha = 0.5
     @placable = false
-    @game.physics.arcade.enable(this)
+    @game.physics.arcade.enableBody(this)
 
   update: ->
     map = game.state.getCurrentState().map

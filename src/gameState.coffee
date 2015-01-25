@@ -61,7 +61,7 @@ class window.GameState extends Phaser.State
     @items_layer = @game.add.group()
     @items_layer.z = 3
     @buildings_layer = @game.add.group()
-    @buildings_layer.physicsBodyType = Phaser.Physics.Arcade
+    @buildings_layer.physicsBodyType = Phaser.Physics.ARCADE
     @buildings_layer.enableBody = true
     @buildings_layer.z = 2
     @environment_layer = @game.add.group()
