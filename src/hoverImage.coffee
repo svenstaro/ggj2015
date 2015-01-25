@@ -9,6 +9,19 @@ class window.HoverImage extends Phaser.Sprite
     @alpha = 0.5
     @placable = false
     @game.physics.arcade.enableBody(this)
+    
+    input  = new Phaser.Graphics(@game, -64, 0)
+    input.beginFill(0x00FF00, 0.5)
+    input.drawRect(0, 0, 64, 64)
+    input.endFill()
+    this.addChild(input)
+    output  = new Phaser.Graphics(@game, 64, 0)
+    output.beginFill(0xFF0000, 0.5)
+    output.drawRect(0, 0, 64, 64)
+    output.endFill()
+    this.addChild(output)
+    rotate_key = @game.input.keyboard.addKey(Phaser.Keyboard.R)
+    rotate_key.onDown.add((-> this.angle+=90), this)
 
   update: ->
     map = game.state.getCurrentState().map
@@ -55,7 +68,7 @@ class window.HoverImage extends Phaser.Sprite
             this.destroy()
           @counter = @counter + 1
         else
-          new_building = game.add.existing(new Building(@gameType , game.state.getCurrentState(), game, @x, @y))
+          new_building = game.add.existing(new Building(@gameType , game.state.getCurrentState(), game, @x, @y, @angle))
           game.state.getCurrentState().buildings_layer.add(new_building)
     else
         game.input.onDown.remove(this.onClick, this)
