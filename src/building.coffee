@@ -45,7 +45,7 @@ class window.Building extends Phaser.Sprite
     console.log("Building.constructor #{@gameType}")
 
   onGameTick: ->
-    @itemsIn([])
+    #@itemsIn([])
     
   itemsIn: (items) ->
     for recipe in @recipes
