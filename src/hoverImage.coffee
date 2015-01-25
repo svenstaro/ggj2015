@@ -86,6 +86,7 @@ class window.HoverImage extends Phaser.Sprite
           @direction = (@direction/Math.abs(@direction))
           @axis = "x"
         else
+          window.HoverImage.current = null
           game.input.onDown.remove(this.onClick, this)
           this.destroy()
           return
@@ -103,5 +104,6 @@ class window.HoverImage extends Phaser.Sprite
 
     for tile, i in @finalpath
       game.add.existing(new Building("path", game.state.getCurrentState(), game, tile.x, tile.y))
+    window.HoverImage.current = null
       
 window.HoverImage.current = null
