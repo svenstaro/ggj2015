@@ -1,5 +1,5 @@
 class window.Building extends Phaser.Sprite
-  constructor: (@gameType, state, game, x, y) ->
+  constructor: (@gameType, state, game, x, y, angle) ->
     key = @gameType
     @cooldown = 5
     
@@ -24,6 +24,8 @@ class window.Building extends Phaser.Sprite
       @recipes = []
 
     super(game, x, y, key)
+
+    @angle = angle
     
     input  = new Phaser.Graphics(@game, -64, 0)
     input.beginFill(0x00FF00, 0.5)
