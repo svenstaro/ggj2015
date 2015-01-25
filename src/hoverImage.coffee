@@ -101,7 +101,8 @@ class window.HoverImage extends Phaser.Sprite
           @count = @count + 1
 
     for tile, i in @finalpath
-      game.add.existing(new Building("path", game.state.getCurrentState(), game, tile.x, tile.y))
+      new_building = game.add.existing(new Building("path", game.state.getCurrentState(), game, tile.x, tile.y))
+      game.state.getCurrentState().buildings_layer.add(new_building)
     window.HoverImage.current = null
       
 window.HoverImage.current = null
