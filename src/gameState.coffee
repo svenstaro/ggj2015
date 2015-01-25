@@ -26,6 +26,9 @@ class window.GameState extends Phaser.State
     @game.load.image("tree", "img/tree_01.png")
     @game.load.image("cave", "img/cave_01.png")
     @game.load.image("shrub", "img/shrub.png")
+    #sound
+    @game.load.audio("background_sound", "snd/background_sound.ogg")
+
 
   create: ->
     console.log("create")
@@ -102,6 +105,10 @@ class window.GameState extends Phaser.State
     text_well = @game.add.text(855, 423, "Road: workers move", @style)
     # test moving camera
     @game.world.setBounds(0, 0, 1000, 600)
+    #audio background
+    music = @game.add.audio("background_sound")
+    music.play()
+    music.volume = 4
 
   update: ->
     #if (@cursors.up.isDown)
