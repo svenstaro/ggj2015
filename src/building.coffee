@@ -24,6 +24,17 @@ class window.Building extends Phaser.Sprite
       @recipes = []
 
     super(game, x, y, key)
+    
+    input  = new Phaser.Graphics(@game, -64, 0)
+    input.beginFill(0x00FF00, 0.5)
+    input.drawRect(0, 0, 64, 64)
+    input.endFill()
+    this.addChild(input)
+    output  = new Phaser.Graphics(@game, 64, 0)
+    output.beginFill(0xFF0000, 0.5)
+    output.drawRect(0, 0, 64, 64)
+    output.endFill()
+    this.addChild(output)
 
     state.gameTickEvent.add(@onGameTick, this)
 

@@ -53,22 +53,27 @@ class window.GameState extends Phaser.State
         @map.putTile(@game.rnd.integerInRange(0, tileset.total - 1), x, y)
 
     #create group of items to place them above other objects
+    #InputLayer
     @input_layer = @game.add.group()
     @input_layer.z = 6
     @input_layer.physicsBodyType = Phaser.Physics.ARCADE
     @input_layer.enableBody = true
+    #Outputlayer
     @output_layer = @game.add.group()
     @output_layer.z = 5
     @output_layer.physicsBodyType = Phaser.Physics.ARCADE
     @output_layer.enableBody = true
     @button_layer = @game.add.group()
     @button_layer.z = 4
+    #ItemLayer
     @items_layer = @game.add.group()
     @items_layer.z = 3
+    #BuildingLayer
     @buildings_layer = @game.add.group()
     @buildings_layer.physicsBodyType = Phaser.Physics.ARCADE
     @buildings_layer.enableBody = true
     @buildings_layer.z = 2
+    #EnvironmentLayer
     @environment_layer = @game.add.group()
     @environment_layer.physicsBodyType = Phaser.Physics.ARCADE
     @environment_layer.enableBody = true
