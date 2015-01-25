@@ -14,16 +14,17 @@ class window.GameState extends Phaser.State
     #Ground
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
-    @game.load.image("wood", "img/wood.png")
-    @game.load.image("stone", "img/stone.png")
-    @game.load.image("egg", "img/eggs.png")
-    @game.load.image("straw", "img/straw.png")
-    @game.load.image("wheat", "img/wheat.png")
+    @game.load.image("wood", "img/wood_01.png")
+    @game.load.image("stone", "img/stone_01.png")
+    @game.load.image("egg", "img/eggs_01.png")
+    @game.load.image("straw", "img/straw_01.png")
+    @game.load.image("wheat", "img/wheat_01.png")
     @game.load.image("fruits", "img/fruits.png")
-    @game.load.image("chicken", "img/chicken.png")
+    @game.load.image("chicken", "img/chicken_01.png")
+    @game.load.image("water", "img/water_01.png")
     #EnvObjects
-    @game.load.image("tree", "img/tree.png")
-    @game.load.image("cave", "img/cave.png")
+    @game.load.image("tree", "img/tree_01.png")
+    @game.load.image("cave", "img/cave_01.png")
     @game.load.image("shrub", "img/shrub.png")
 
   create: ->
