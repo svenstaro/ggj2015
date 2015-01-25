@@ -33,8 +33,9 @@ class window.HoverImage extends Phaser.Sprite
 
     @x = x
     @y = y
-    colliding = @game.physics.arcade.overlap(this, game.state.getCurrentState().buildings_layer)
-    @placable = !colliding
+    colliding_building = @game.physics.arcade.overlap(this, game.state.getCurrentState().buildings_layer)
+    colliding_environment = @game.physics.arcade.overlap(this, game.state.getCurrentState().environment_layer)
+    @placable = !colliding_building and !colliding_environment
 
     if @placable
       @tint = 0x55FF55

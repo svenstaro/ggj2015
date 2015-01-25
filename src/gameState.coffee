@@ -62,11 +62,17 @@ class window.GameState extends Phaser.State
     @buildings_layer.enableBody = true
     @buildings_layer.z = 2
     @environment_layer = @game.add.group()
+    @environment_layer.physicsBodyType = Phaser.Physics.ARCADE
+    @environment_layer.enableBody = true
     @environment_layer.z = 1
 
-    # for testing
-    @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
-    @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
+    # EnvObjects on random locations
+    for i in [0..10]
+      @environment_layer.add(@game.add.existing(new EnvObject("tree", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
+    for i in [0..15]
+      @environment_layer.add(@game.add.existing(new EnvObject("shrub", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
+    for i in [0..5]
+      @environment_layer.add(@game.add.existing(new EnvObject("cave", this, @game, @game.rnd.between(0, 12)*64, @game.rnd.between(0, 11)*64)))
     #style of the text for buttons
     @style = {fill:"white", font:"14px Arial"}
     
