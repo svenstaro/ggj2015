@@ -102,8 +102,8 @@ class window.GameState extends Phaser.State
       game.camera.y += 4
     if (@cursors.left.isDown)
       game.camera.x -= 4
-    else if (@cursors.right.isDown)
-      game.camera.x += 4
+    #else if (@cursors.right.isDown)
+     # game.camera.x += 4
 
   gameTick: ->
     @gameTickEvent.dispatch(this)
