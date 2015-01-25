@@ -3,7 +3,7 @@ class window.BuildingRecipe
   
   #returns true if the given array contains the same items as @inItems
   matches: (items) ->
-    inItems = @inItems.slice(0)
+    inItems = @inItems.slice(0) # copy
     for item in items
       index = inItems.indexOf(item)
       if index >= 0
