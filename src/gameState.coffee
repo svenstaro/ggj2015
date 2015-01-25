@@ -33,6 +33,8 @@ class window.GameState extends Phaser.State
   create: ->
     console.log("create")
 
+    @game.physics.startSystem(Phaser.Physics.ARCADE)
+
     @cursors = @game.input.keyboard.createCursorKeys()
 
     @game.canvas.setAttribute("oncontextmenu", "return false;")
@@ -59,6 +61,8 @@ class window.GameState extends Phaser.State
     @items_layer = @game.add.group()
     @items_layer.z = 3
     @buildings_layer = @game.add.group()
+    @buildings_layer.physicsBodyType = Phaser.Physics.Arcade
+    @buildings_layer.enableBody = true
     @buildings_layer.z = 2
     @environment_layer = @game.add.group()
     @environment_layer.z = 1
