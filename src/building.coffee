@@ -15,25 +15,9 @@ class window.Building extends Phaser.Sprite
         new BuildingRecipe(["fruits"], ["egg"]),
         new BuildingRecipe(["straw"], ["chicken"])
       ]
-    else if @gameType == "cow_farm"
-      @recipes = [
-        new BuildingRecipe(["water"], ["milk"])
-        new BuildingRecipe(["straw"], ["steak"])
-      ]
     else if @gameType == "hut"
       @recipes = [
         new BuildingRecipe(["food", "water"], ["baby"])
-      ]
-    else if @gameType == "storage"
-      @recipes = []
-    else if @gameType == "bakery"
-      @recipes = [
-        new BuildingRecipe(["wheat", "egg", "wood", "milk", "fruit"], ["cookie"]),
-        new BuildingRecipe(["wheat", "egg", "wood", "water"], ["bread"])
-      ]
-    else if @gameType == "refinery"
-      @recipes = [
-        new BuildingRecipe(["iron", "wood"], ["iron ingots"])
       ]
     else if @gameType == "path"
       @recipes = []

@@ -15,15 +15,11 @@ class window.GameState extends Phaser.State
     @game.load.image("ground-tiles", "img/groundtile_default.png")
     #Items
     @game.load.image("wood", "img/wood.png")
-    @game.load.image("steak", "img/steak.png")
     @game.load.image("stone", "img/stone.png")
-    @game.load.image("cookie", "img/cookie.png")
-    @game.load.image("bread", "img/bread.png")
-    @game.load.image("iron", "img/uref_iron.png")
     @game.load.image("egg", "img/eggs.png")
     @game.load.image("straw", "img/straw.png")
-    @game.load.image("iron ingot", "img/iron_ingot.png")
     @game.load.image("wheat", "img/wheat.png")
+    @game.load.image("fruits", "img/fruits.png")
     @game.load.image("chicken", "img/chicken.png")
     #EnvObjects
     @game.load.image("tree", "img/tree.png")
@@ -70,18 +66,6 @@ class window.GameState extends Phaser.State
     # for testing
     @game.add.existing(new EnvObject("tree", this, @game, 50, 50))
     @game.add.existing(new EnvObject("shrub", this, @game, 200, 100))
-    wood = new Item("wood", this, @game, 100, 10)
-    @game.add.existing(wood)
-    @items_layer.add(wood)
-    well_1 = new Building("well", this, @game, 20, 150)
-    @game.add.existing(well_1)
-    @game.add.existing(new Button("well", @game, 500, 500, 2))
-    path = new Building("path", this, @game, 300, 200)
-    @game.add.existing(path)
-    @game.add.existing(new Button("path", @game, 110, 20, 1))
-    @buildings_layer.add(path)
-    wheatfarm = new Building("wheat_farm", this, @game, 20, 150)
-    @game.add.existing(wheatfarm)
     #style of the text for buttons
     @style = {fill:"white", font:"14px Arial"}
     
